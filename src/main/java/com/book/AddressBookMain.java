@@ -374,6 +374,10 @@ public class AddressBookMain {
             }
         }
 
+        FileOps fileOps=new FileOps(addressBookList);
+        //txt file ops
+        fileOps.writeToTXTfile();
+        fileOps.readFromTXTfile();
         
 
         sc.close();
