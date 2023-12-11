@@ -379,6 +379,9 @@ public class AddressBookMain {
         fileOps.writeToTXTfile();
         fileOps.readFromTXTfile();
         
+        //CSV file ops
+        fileOps.writeToCSVfile();
+        fileOps.readFromCSVfile();
 
         sc.close();
 
