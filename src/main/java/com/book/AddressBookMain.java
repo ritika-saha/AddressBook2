@@ -383,6 +383,10 @@ public class AddressBookMain {
         fileOps.writeToCSVfile();
         fileOps.readFromCSVfile();
 
+        //JSON file ops
+        fileOps.writeToJSONfile();
+        fileOps.readFromJSONfile();
+
         sc.close();
 
     }

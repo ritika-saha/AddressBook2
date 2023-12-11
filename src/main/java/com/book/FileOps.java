@@ -2,6 +2,11 @@ package com.book;
 
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.google.protobuf.Type;
+import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
@@ -11,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,6 +28,9 @@ public class FileOps {
     ArrayList<AddressBook> addressBookList;
     public FileOps(ArrayList<AddressBook> book){
         this.addressBookList=book;
+    }
+    public FileOps(){
+
     }
 
     public void writeToTXTfile(){
@@ -90,4 +99,39 @@ public class FileOps {
             throw new RuntimeException(e);
         }
     }
+
+    public void writeToJSONfile() {
+    String filePath = "AddressBookDir/AddressBookData.json";
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    try (FileWriter writer = new FileWriter(filePath)) {
+        // Serialize the entire list as an array
+        gson.toJson(addressBookList, writer);
+        System.out.println("Data Added");
+    } catch (IOException exception) {
+        exception.printStackTrace();
+    }
+}
+
+
+public void readFromJSONfile() {
+    String filePath = "AddressBookDir/AddressBookData.json";
+    Gson gson = new Gson();
+    try (FileReader reader = new FileReader(filePath)) {
+        // Use TypeToken to handle generic types like lists
+        java.lang.reflect.Type listType = new TypeToken<List<AddressBook>>() {}.getType();
+        List<AddressBook> addressBooks = gson.fromJson(reader, listType);
+
+        for (AddressBook addressBook : addressBooks) {
+            ArrayList<contact> contacts = addressBook.contactList;
+            for (contact contact : contacts) {
+                System.out.println(contact.toString());
+            }
+        }
+    } catch (IOException exception) {
+        exception.printStackTrace();
+    }
+}
+
+
+
 }

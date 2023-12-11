@@ -1,0 +1,30 @@
+[
+  {
+    "contactList": [
+      {
+        "fname": "Ritiit",
+        "lname": "Sahaha",
+        "address": "sfgs",
+        "city": "cob",
+        "zip": "2342243",
+        "state": "wb",
+        "phone": "91 3939393939",
+        "email": "sdfg@gmail.com"
+      }
+    ]
+  },
+  {
+    "contactList": [
+      {
+        "fname": "Tiiii",
+        "lname": "Jiiii",
+        "address": "sfdsf",
+        "city": "cob",
+        "zip": "2342342",
+        "state": "wb",
+        "phone": "91 3939393939",
+        "email": "sdfgfsdg@gmasil.com"
+      }
+    ]
+  }
+]
