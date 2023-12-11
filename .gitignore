@@ -1,0 +1,11 @@
+*.class
+
+# ignore vscode folder
+.vscode
+
+# ignore readme file
+README.md
+
+
+
+DBcred.java
