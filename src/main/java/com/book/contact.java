@@ -64,10 +64,17 @@ public class contact {
     }
 
     @Override
-    public String toString() {
-        return String.format(
-                "NAME : %s %s\nADDRESS : %s\nCITY : %s\nSTATE :%s\nZIP : %s\nPHONE NUMBER : %s\nEMAIL : %s\n",
-                fname, lname, address, city, state, zip, phone, email);
-    }
+public String toString() {
+    return String.format(
+            "Name     : %s %s\n" +
+            "Address  : %s\n" +
+            "City     : %s\n" +
+            "State    : %s\n" +
+            "ZIP      : %s\n" +
+            "Phone    : %s\n" +
+            "Email    : %s\n",
+            fname, lname, address, city, state, zip, phone, email);
+}
+
 
 }
