@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBops {
-       ArrayList<contact> contactList=new ArrayList<>();
+       ArrayList<contact> contactList;
       // method to connect with the database
       public static Connection getConnection() {
         Connection connection;
@@ -25,6 +25,7 @@ public class DBops {
     }
 
     public void getContactList(){
+        contactList=new ArrayList<>();
         String query="select  p.first_name,p.last_name,at.type, a.address,a.city,a.zip,a.state,p.phone,p.email from address a inner join addressbook_table2 at on a.address_id=at.address_id inner join person p on p.person_id=at.person_id; ";
         try(Connection connection=getConnection();
         Statement statement = connection.createStatement();
