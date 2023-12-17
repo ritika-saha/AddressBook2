@@ -113,4 +113,55 @@ public class DBops {
 
     }
 
+    public void deleteEntryFromDb(String fname,String lname){
+        String getpid="select person_id from person where first_name=? and last_name=?";
+        String getaid="select address_id from addressbook_table2 where person_id=?";
+        String deleteBook="delete from addressbook_table2 where address_id=? and person_id=?";
+        String deletePerson="delete from person where person_id=?";
+        String deleteAddress="delete from address where address_id=?";
+
+         try (
+            Connection connection = getConnection();
+            PreparedStatement statement1 = connection.prepareStatement(getpid)) {
+                statement1.setString(1, fname);
+                statement1.setString(2, lname);
+                ResultSet res1=statement1.executeQuery();
+                String person_id="";
+                while (res1.next()) {  
+                    person_id=res1.getString("person_id");
+                }
+
+                PreparedStatement statement2=connection.prepareStatement(getaid);
+                statement2.setString(1, person_id);
+                ResultSet res2=statement2.executeQuery();
+                String address_id="";
+                while (res2.next()) {  
+                    address_id=res2.getString("address_id");
+                }
+
+                PreparedStatement statement3= connection.prepareStatement(deleteBook);
+                statement3.setString(1, address_id);
+                statement3.setString(2, person_id);
+                statement3.executeUpdate();
+
+                PreparedStatement statement4=connection.prepareStatement(deleteAddress);
+                statement4.setString(1, address_id);
+                statement4.executeUpdate();
+
+                PreparedStatement statement5=connection.prepareStatement(deletePerson);
+                statement5.setString(1, person_id);
+                statement5.executeUpdate();
+
+                getContactList();
+
+                System.out.println("Entry deleted for -----------------> : "+fname+" "+lname);
+
+
+             }catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+                exception.printStackTrace();
+            }
+
+    }
+
 }

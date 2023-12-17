@@ -65,6 +65,11 @@ public class DBmain {
             db.addContact(fname,lname,address,city,state,zip,phone,email);
             db.displayContactList();
          
+            System.out.println("Enter first name and last name for data deletion");
+            fname=sc.nextLine();
+            lname=sc.nextLine();
+            db.deleteEntryFromDb(fname, lname);
+            db.displayContactList();
 
          sc.close();
    }
