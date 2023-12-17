@@ -143,6 +143,7 @@ public void readFromJSONfile() {
     } catch (IOException exception) {
         exception.printStackTrace();
     }
+}
 
     public void readFromJSONfileDB() {
     String filePath = "AddressBookDir/AddressBookDataDB.json";
