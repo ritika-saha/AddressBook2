@@ -38,5 +38,15 @@
     "state": "UP",
     "phone": "91 9393939393",
     "email": "tiya12@gmail.com"
+  },
+  {
+    "fname": "Riju",
+    "lname": "Lal",
+    "address": "eeeee",
+    "city": "cob",
+    "zip": "191919",
+    "state": "wb",
+    "phone": "91 1919191919",
+    "email": "riju@gmail.com"
   }
 ]
