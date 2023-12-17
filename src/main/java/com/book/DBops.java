@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBops {
-       ArrayList<contact> contactList;
+       public ArrayList<contact> contactList;
       // method to connect with the database
       public static Connection getConnection() {
         Connection connection;
