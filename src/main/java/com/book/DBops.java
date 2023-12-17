@@ -164,4 +164,35 @@ public class DBops {
 
     }
 
+    public void editDataInDb(String fname,String oldAddress,String email,String phone,String newAddress,String city,String state,String zip){
+         String updatePerson="update person set phone=? , email=? where first_name=?";
+         String updateAddress="update address set address=? ,city=?, state=?, zip=? where address=?;";
+
+         try (
+            Connection connection = getConnection();
+            PreparedStatement statement1 = connection.prepareStatement(updateAddress)) {
+                statement1.setString(1, newAddress);
+                statement1.setString(2, city);
+                statement1.setString(3, state);
+                statement1.setString(4, zip);
+                statement1.setString(5, oldAddress);
+                statement1.executeUpdate();
+
+                PreparedStatement statement2=connection.prepareStatement(updatePerson);
+                statement2.setString(1, phone);
+                statement2.setString(2, email);
+                statement2.setString(3,fname);
+                statement2.executeUpdate();
+
+                getContactList();
+
+                System.out.println("Entry updated successfully------------------------------>");
+               
+
+              }catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+                exception.printStackTrace();
+            }  
+    }
+
 }

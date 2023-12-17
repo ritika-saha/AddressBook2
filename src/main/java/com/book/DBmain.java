@@ -71,6 +71,19 @@ public class DBmain {
             db.deleteEntryFromDb(fname, lname);
             db.displayContactList();
 
+            System.out.println("Enter the following data to update contact");
+            System.out.println("first name, old Address, new email, new phone, new Address, new city, new state, new zip");
+            fname=sc.nextLine();
+            String oldAddress=sc.nextLine();
+            email=sc.nextLine();
+            phone=sc.nextLine();
+            address=sc.nextLine();
+            city=sc.nextLine();
+            state=sc.nextLine();
+            zip=sc.nextLine();
+            db.editDataInDb(fname, oldAddress, email, phone, address, city, state, zip);
+            db.displayContactList();
+
          sc.close();
    }
 }
