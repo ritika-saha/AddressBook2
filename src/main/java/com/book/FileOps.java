@@ -26,11 +26,12 @@ import java.io.IOException;
 
 public class FileOps {
     ArrayList<AddressBook> addressBookList;
+    public ArrayList<contact>contactList;
     public FileOps(ArrayList<AddressBook> book){
         this.addressBookList=book;
     }
     public FileOps(){
-
+    
     }
 
     public void writeToTXTfile(){
@@ -112,6 +113,18 @@ public class FileOps {
     }
 }
 
+ public void writeToJSONfileDB() {
+    String filePath = "AddressBookDir/AddressBookDataDB.json";
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    try (FileWriter writer = new FileWriter(filePath)) {
+        // Serialize the entire list as an array
+        gson.toJson(contactList, writer);
+        System.out.println("Data Added");
+    } catch (IOException exception) {
+        exception.printStackTrace();
+    }
+}
+
 
 public void readFromJSONfile() {
     String filePath = "AddressBookDir/AddressBookData.json";
@@ -126,6 +139,23 @@ public void readFromJSONfile() {
             for (contact contact : contacts) {
                 System.out.println(contact.toString());
             }
+        }
+    } catch (IOException exception) {
+        exception.printStackTrace();
+    }
+
+    public void readFromJSONfileDB() {
+    String filePath = "AddressBookDir/AddressBookDataDB.json";
+    Gson gson = new Gson();
+    try (FileReader reader = new FileReader(filePath)) {
+        // Use TypeToken to handle generic types like lists
+        java.lang.reflect.Type listType = new TypeToken<List<contact>>() {}.getType();
+        List<contact> contacts = gson.fromJson(reader, listType);
+
+        for (contact contact : contacts) {
+           
+                System.out.println(contact.toString());
+            
         }
     } catch (IOException exception) {
         exception.printStackTrace();

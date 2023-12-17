@@ -1,0 +1,42 @@
+[
+  {
+    "fname": "Ritika",
+    "lname": "Saha",
+    "address": "ffgg",
+    "city": "Cob",
+    "zip": "929399",
+    "state": "WB",
+    "phone": "91 9191919191",
+    "email": "riri@gmail.com"
+  },
+  {
+    "fname": "Joon",
+    "lname": "Kim",
+    "address": "dfgd",
+    "city": "Mumbai",
+    "zip": "294939",
+    "state": "Maharashtra",
+    "phone": "91 5454545454",
+    "email": "joon@gmail.com"
+  },
+  {
+    "fname": "Hema",
+    "lname": "Chowdhury",
+    "address": "dfeq",
+    "city": "Kolkata",
+    "zip": "360401",
+    "state": "WB",
+    "phone": "91 8484848484",
+    "email": "hema@gmail.com"
+  },
+  {
+    "fname": "Tiya",
+    "lname": "Bansal",
+    "address": "ooooo",
+    "city": "Delhi",
+    "zip": "393939",
+    "state": "UP",
+    "phone": "91 9393939393",
+    "email": "tiya12@gmail.com"
+  }
+]

@@ -84,6 +84,12 @@ public class DBmain {
             db.editDataInDb(fname, oldAddress, email, phone, address, city, state, zip);
             db.displayContactList();
 
+            System.out.println("Writing data to json file");
+            FileOps file=new FileOps();
+            file.contactList=db.contactList;
+            file.writeToJSONfileDB();
+            file.readFromJSONfileDB();
+
          sc.close();
    }
 }
